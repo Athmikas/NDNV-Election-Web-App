@@ -20,6 +20,43 @@ let cancelTokenSource = null;
 let notHighlightedPolLocIcon, highlightedPolLocIcon, postOfficeIcon;
 
 // -----------------------------------------------------------------------------
+// SECTION: County Highlight Functions
+// -----------------------------------------------------------------------------
+
+function highlightCounty(countyName) {
+    clearHighlightedCounty();
+    if (!ELEMENTS.countyCheckbox.checked) return;
+
+    const selectedCountyFeature = getCountyFeatureByName(countyName);
+    if (!selectedCountyFeature || !ALLOWED_COUNTIES.includes(countyName)) return;
+
+    highlightedCountyLayer = L.geoJson(selectedCountyFeature, {
+        style: STYLES.HIGHLIGHTED_COUNTY,
+    }).addTo(map);
+}
+
+// -----------------------------------------------------------------------------
+// SECTION: County Layer Initialization
+// -----------------------------------------------------------------------------
+
+function addCountyLayerToMap(data) {
+    countyLayer = L.geoJson(data, {
+        style: feature => ({
+            color: ALLOWED_COUNTIES.includes(feature.properties.NAME) ? "#ff7800" : "#000000",
+            weight: ALLOWED_COUNTIES.includes(feature.properties.NAME) ? 2 : 0.5,
+            opacity: ALLOWED_COUNTIES.includes(feature.properties.NAME) ? 1 : 0.5,
+            fillOpacity: 0,
+        }),
+        onEachFeature: (feature, layer) => {
+            layer.on('click', () => {
+                ELEMENTS.countyDropdown.value = feature.properties.NAME;
+                highlightCounty(feature.properties.NAME); // Now references defined function
+            });
+        },
+    }).addTo(map);
+}
+
+// -----------------------------------------------------------------------------
 // SECTION: Map Initialization and Setup
 // -----------------------------------------------------------------------------
 
