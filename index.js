@@ -348,11 +348,6 @@ function showPrecinctsForCounty(countyName) {
     updatePrecinctsInLegend(precinctColorMap);
 }
 
-function clearPrecinctsInLegend() {
-    ELEMENTS.precinctsLegendDiv.innerHTML = ELEMENTS.precinctCheckbox.checked ?
-        'Precinct information currently unavailable for this county' :
-        'Enable precinct layer and select county to view precincts';
-}
 
 function updatePrecinctsInLegend(precinctColorMap) {
     ELEMENTS.precinctsLegendDiv.innerHTML = '';
