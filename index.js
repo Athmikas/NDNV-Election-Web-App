@@ -1,19 +1,15 @@
 import { BASE_LAYERS, ELEMENTS, STYLES, BOUNDARY_LAYER_PATHS, SYMBOL_LAYER_PATHS, COUNTY_DATASOURCE_PATHS, ICON_PATHS, ALLOWED_COUNTIES} from './constants.js';
 import { addEventListener } from './eventListeners.js';
 
-// Map and Layers
 let map, marker, countyLayer, legislativeLayer, highlightedCountyLayer, tribalBoundariesLayer;
 let precinctLayers = [], highlightedPollLocMarkers = [], pollingLocationMarkers = [], postOfficeIconMarkers = [];
 let pollLocMarkerMap = {};
 
-// Data
 let precinctData, countyData, legislativeData, tribalBoundariesData;
 const countyAuditorInfo = {};
 
-// Other Variables
 let cancelTokenSource = null;
 
-// Search Control
 const searchControl = new L.Control.Search({
     url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
     jsonpParam: 'json_callback',
@@ -390,12 +386,11 @@ function clearHighlightedPollLocations() {
 
 function clearPostOffices()
 {
-    postOfficeIconMarkers.forEach(marker => {
-        map.removeLayer(marker)
-         }
-    ) 
+postOfficeIconMarkers.forEach(marker => {
+    map.removeLayer(marker)
+     }
+) 
 }
-
 
 function addCountyLayerToMap(data) {
     countyLayer = L.geoJson(data, {
@@ -442,8 +437,6 @@ function populatePostOffices(postOffices) {
             // Bind a popup with the post office address
             postOfficeIconMarker.bindPopup(postOffice.ADDRESS);
 
-            // Optionally, open the popup by default
-            // postOfficeIconMarker.openPopup();
 
             // Store the marker for future reference
             postOfficeIconMarkers.push(postOfficeIconMarker);
