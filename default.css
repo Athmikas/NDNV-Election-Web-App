@@ -163,8 +163,6 @@ body, html {
     display: inline-block;
 }
 
-
-
 /* General Styles for Legend Items */
 .legend-items,
 #icon-legend,
@@ -304,7 +302,6 @@ body, html {
     }
 }
 
-
 /* Default styles for desktop */
 .leaflet-popup-content {
     font-family: Futura;
@@ -374,8 +371,6 @@ body, html {
     max-width: 100vw;
     box-sizing: border-box;
 }
-
-
 
 
 
