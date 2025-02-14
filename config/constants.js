@@ -31,7 +31,7 @@ export const COUNTY_DATASOURCE_PATHS = {
 export const ICON_PATHS = {
     POLLING_LOCATION: 'images/voting-pin_notselected.png',
     HIGHLIGHTED_POLLING_LOCATION: 'images/voting-pin_selected.png',
-    POST_OFFICE: 'images/po.png'
+    POST_OFFICE: 'images/post-office.png'
 };
 
 export const ALLOWED_COUNTIES = ['Dunn', 'McKenzie', 'McLean', 'Mountrail', 'Benson', 'Sioux', 'Rolette', 'Mercer'];
