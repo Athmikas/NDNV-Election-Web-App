@@ -11,7 +11,7 @@ import { BASE_LAYERS,
         SYMBOL_LAYER_PATHS, 
         COUNTY_DATASOURCE_PATHS,
         ICON_PATHS,
-        ALLOWED_COUNTIES} from '.config/constants.js';
+        ALLOWED_COUNTIES} from './config/constants.js';
 
 import { addEventListener } from './eventListeners.js';
 
