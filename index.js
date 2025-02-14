@@ -1,9 +1,25 @@
-// Import necessary modules and constants
+/**
+ * NDNV Election Web Application
+ *
+ * This script initializes and manages the map, data layers,
+ * UI components, and event handling for the NDNV Election Web App.
+ */
+
+// -----------------------------------------------------------------------------
+// SECTION: Imports
+// -----------------------------------------------------------------------------
+
 import {
-    BASE_LAYERS, ELEMENTS, STYLES, BOUNDARY_LAYER_PATHS,
-    SYMBOL_LAYER_PATHS, COUNTY_DATASOURCE_PATHS, ICON_PATHS, ALLOWED_COUNTIES
-} from './constants.js';
-import { addEventListener } from './eventListeners.js';
+    BASE_LAYERS,
+    ELEMENTS,
+    STYLES,
+    BOUNDARY_LAYER_PATHS,
+    SYMBOL_LAYER_PATHS,
+    COUNTY_DATASOURCE_PATHS,
+    ICON_PATHS,
+    ALLOWED_COUNTIES
+} from './config/constants.js'; // Moved constants to config directory
+import { addEventListener } from './eventListeners.js'; // Import custom event listeners
 
 // -----------------------------------------------------------------------------
 // SECTION: Module-Level Variables
